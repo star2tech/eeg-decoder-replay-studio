@@ -1,0 +1,122 @@
+{
+  "dataset": "BCI Competition IV Dataset 2a",
+  "moabb_identifier": "BNCI2014_001",
+  "subject_id": 1,
+  "random_seed": 42,
+  "experiment_directory": "experiments/bnci2014_001_subject01_baseline_20_epochs_20261025",
+  "device": "cpu",
+  "package_versions": {
+    "python": "3.14.6",
+    "torch": "2.14.1+cpu",
+    "braindecode": "1.8.1",
+    "moabb": "1.7.2",
+    "mne": "1.13.2",
+    "scikit-learn": "1.9.1"
+  },
+  "split": {
+    "training_session": "0train",
+    "training_runs": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "validation_session": "0train",
+    "validation_runs": [
+      "5"
+    ],
+    "evaluation_session": "1test",
+    "evaluation_session_used": false,
+    "training_trials": 240,
+    "validation_trials": 48
+  },
+  "labels": {
+    "feet": 0,
+    "left_hand": 1,
+    "right_hand": 2,
+    "tongue": 3
+  },
+  "preprocessing": [
+    "pick EEG channels",
+    "multiply signal by 1e6 (volts to microvolts)",
+    "bandpass filter 4.0-38.0 Hz",
+    "exponential_moving_standardize(factor_new=0.001, init_block_size=1000)"
+  ],
+  "preprocessing_scope": "0train only; 1test was not preprocessed",
+  "trial_window": {
+    "start_offset_samples": -125,
+    "stop_offset_samples": 0,
+    "sampling_rate_hz": 250.0,
+    "n_times": 1125
+  },
+  "model": {
+    "type": "ShallowFBCSPNet",
+    "n_chans": 22,
+    "n_outputs": 4,
+    "n_times": 1125,
+    "n_filters_time": 40,
+    "filter_time_length": 25,
+    "n_filters_spat": 40,
+    "pool_time_length": 75,
+    "pool_time_stride": 15,
+    "final_conv_length": "auto",
+    "drop_prob": 0.5
+  },
+  "training": {
+    "epochs": 20,
+    "batch_size": 64,
+    "optimizer": "AdamW",
+    "learning_rate": 0.000625,
+    "weight_decay": 0,
+    "scheduler": "CosineAnnealingLR",
+    "scheduler_t_max": 19,
+    "checkpoint_selection": "lowest validation loss"
+  },
+  "test_evaluation_performed": false,
+  "result_summary": {
+    "best_epoch_by_validation_loss": 20,
+    "best_epoch_metrics": {
+      "epoch": 20,
+      "train_loss": 0.4715750416119893,
+      "valid_loss": 0.9533531665802002,
+      "train_accuracy": 0.9375,
+      "valid_accuracy": 0.5416666666666666
+    },
+    "validation_class_counts": {
+      "feet": 12,
+      "left_hand": 12,
+      "right_hand": 12,
+      "tongue": 12
+    },
+    "uniform_guessing_baseline": 0.25,
+    "majority_class_baseline": 0.25,
+    "validation_confusion_matrix": [
+      [
+        3,
+        1,
+        4,
+        4
+      ],
+      [
+        0,
+        7,
+        5,
+        0
+      ],
+      [
+        0,
+        3,
+        9,
+        0
+      ],
+      [
+        3,
+        0,
+        2,
+        7
+      ]
+    ],
+    "total_elapsed_seconds": 138.53538310015574
+  }
+}
