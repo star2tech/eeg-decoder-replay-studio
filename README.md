@@ -19,7 +19,7 @@ assets.
 
 ## Screenshot
 
-<!-- Screenshot placeholder: add an approved screenshot of the local replay UI. -->
+![Screenshot of dashboard or studio](https://imgur.com/a/zA6RBcg "Logo Title Text 1")
 
 ## Run locally
 
