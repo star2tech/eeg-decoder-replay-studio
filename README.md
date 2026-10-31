@@ -19,7 +19,7 @@ assets.
 
 ## Screenshot
 
-![Screenshot of dashboard or studio](https://imgur.com/a/zA6RBcg.png "Logo Title Text 1")
+![Screenshot of dashboard or studio](https://imgur.com/a/eeg-replay-studio-zA6RBcg#xFUMTbi "Studio")
 
 ## Run locally
 
