@@ -19,7 +19,7 @@ assets.
 
 ## Screenshot
 
-![Screenshot of dashboard or studio](https://imgur.com/a/zA6RBcg "Logo Title Text 1")
+![Screenshot of dashboard or studio](https://imgur.com/a/zA6RBcg.png "Logo Title Text 1")
 
 ## Run locally
 
